@@ -19,7 +19,7 @@ public class Mariadb implements Database{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+		//exe
 		return conn;
 	}
 	}
