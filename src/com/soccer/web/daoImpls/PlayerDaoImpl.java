@@ -30,7 +30,8 @@ public class PlayerDaoImpl implements PlayerDao{
 		try {
 			PreparedStatement stmt = DatabaseFactory
 					.createDatabase(Constants.VENDOR)
-					.getConnection().prepareStatement(sql);
+					.getConnection()
+					.prepareStatement(sql);
 			stmt.setString(1, param.getPlayerId());
 			stmt.setString(2, param.getSolar());
 			
