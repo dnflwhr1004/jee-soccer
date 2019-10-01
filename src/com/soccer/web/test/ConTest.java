@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.soccer.web.enums.DBUrl;
 import com.soccer.web.pool.Constants;
 
 public class ConTest {
@@ -19,7 +20,7 @@ public class ConTest {
 		
 		try {
 			Class.forName("oracle.jdbc.OracleDriver");
-			conn = DriverManager.getConnection(Constants.ORACLE_URL,
+			conn = DriverManager.getConnection(DBUrl.MARIA_URL.toString(),
 					Constants.USERNAME, Constants.PASSWORD);
 			if(conn != null) {
 				System.out.println("연결 성공");
@@ -30,7 +31,7 @@ public class ConTest {
 						"           FROM PLAYER\r\n" + 
 						"           WHERE POSITION IN('GK','MF')\r\n" + 
 						"            AND TEAM_ID IN('K07','K09','K08')) P");
-				List<String> list =  new ArrayList<>();;
+				List<String> list =  new ArrayList<>();
 	
 				while(rs.next()) {
 			
