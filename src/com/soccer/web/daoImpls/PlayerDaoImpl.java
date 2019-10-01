@@ -21,11 +21,10 @@ public class PlayerDaoImpl implements PlayerDao{
 	
 		PlayerBean player = null;
 		
-		String sql = "SELECT PLAYER_ID, SOLAR\r\n" + 
-				"FROM PLAYER \r\n" + 
-				"WHERE PLAYER_ID LIKE ? AND SOLAR LIKE ?\r\n" + 
-				";\r\n" + 
-				"";
+		String sql = "SELECT * \n" + 
+				"FROM PLAYER \n" + 
+				"WHERE PLAYER_ID LIKE ? \n" + 
+				"    AND SOLAR LIKE ?";
 		
 		try {
 			PreparedStatement stmt = DatabaseFactory
