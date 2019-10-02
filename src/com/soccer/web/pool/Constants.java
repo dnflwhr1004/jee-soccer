@@ -6,6 +6,6 @@ public class Constants {
 	DOUBLE_PATH = "/WEB-INF/views/%s/%s.jsp",
 	TRIPPLE_PATH = "/WEB-INF/views/%s/%s/%s.jsp",
 	VENDOR = "ORACLE",
-	USERNAME = "c##oracle", 
-	PASSWORD="oracle";
+	USERNAME = "c##wooyeon", 
+	PASSWORD="wooyeon";
 }

@@ -1,49 +1,47 @@
 package com.soccer.web.serviceimpls;
-
 import java.util.List;
 import com.soccer.web.daoImpls.PlayerDaoImpl;
 import com.soccer.web.domains.PlayerBean;
 import com.soccer.web.services.PlayerService;
 
 public class PlayerServiceImpl implements PlayerService{
-	
 	private static PlayerServiceImpl instance = new PlayerServiceImpl();
 	public static PlayerServiceImpl getInstance() {return instance;}
-	private PlayerServiceImpl() {}
+	public PlayerServiceImpl() {}
+	
+	// 0. join
+	@Override
+	public boolean join(PlayerBean param) {
+		System.out.println("playerServiceImpl_join");
+		return PlayerDaoImpl.getInstance().insertPlayer(param);
+		 
+		
+	}
 	
 	@Override
 	public PlayerBean login(PlayerBean param) {
-		System.out.println("6. PlayerServiceImpl 의 login() 으로 이동 ");
-		System.out.println(String.format("param 값 출력 : %s, %s", 
+		System.out.println("★★★ 6. PlayerServiceImpl 의 login() 으로 이동 ★★★ ");
+		System.out.println(String.format("param 값 출력 : %s, %s ",
 				param.getPlayerId(), 
-				param.getSolar()));			
-		return PlayerDaoImpl.getInstance().selectByPlayerIdSolar(param);
+				param.getSolar()));
+		return PlayerDaoImpl.getInstance().seletByPlayerIdSolar(param);
 	}
-	
 	@Override
 	public List<String> findPositions() {
-		return PlayerDaoImpl.getInstance().selectPositions();
+		return PlayerDaoImpl.
+				getInstance().
+				selectPositions();
 	}
 
-	// 4. 
 	@Override
 	public List<PlayerBean> findByTeamIdPosition(PlayerBean param) {
-		
-		List<PlayerBean> players = PlayerDaoImpl.getInstance().selectByTeamIdPosition(param);
-				return players;
+		return PlayerDaoImpl
+				.getInstance().selectByTeamIdPosition(param);
 	}
 
-	// 5.
 	@Override
-	public List<PlayerBean> findByTeamIdHeightPlayerName(PlayerBean param) {
-
-		
-		List<PlayerBean> players = PlayerDaoImpl.getInstance().selectByTeamIdHeightName(param);
-		
-		return players;
+	public List<PlayerBean> findByTeamIdHeightName(PlayerBean param) {
+		return null;
 	}
 
-
-
-	
 }
